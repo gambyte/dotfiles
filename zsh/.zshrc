@@ -6,6 +6,7 @@ setopt appendhistory
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
+bindkey '^[h' backward-kill-word
 alias ls='ls -v --color=auto'
 alias lt='ls -t'
 alias ll='ls -lh'
