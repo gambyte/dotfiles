@@ -1,0 +1,7 @@
+clear Lock
+keycode 66 = Return
+keycode 135 = Hyper_R
+add mod3 = Hyper_R
+keycode 65 = Control_L
+add Control = Control_L Control_R
+keycode 255 = space
