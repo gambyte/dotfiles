@@ -33,6 +33,7 @@ PS1='[\u@\h \W]\$ '
 alias update='pacaur -Syyu --noconfirm --noedit'
 alias magit='emacs -nw -magit'
 alias m='ncmpcpp'
+alias e='emacsclient -t -a zile'
 export EDITOR="emacsclient -a zile"
 export SUDO_EDITOR="emacsclient -a zile"
 export DIFFPROG="emacs -nw -diff"
