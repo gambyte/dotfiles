@@ -63,6 +63,7 @@ RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %
 [[ $INSIDE_EMACS ]] && unsetopt zle
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
+set -u
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
