@@ -54,3 +54,4 @@ function clearram()
 }
 
 set -u
+stty -ixon

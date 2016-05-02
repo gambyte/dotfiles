@@ -65,6 +65,7 @@ RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
 set -u
+stty -ixon
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
