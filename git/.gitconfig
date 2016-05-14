@@ -1,0 +1,10 @@
+[user]
+	email = gambyte@users.noreply.github.com
+	name = Graham Dobbins
+	signingkey = BAEE096B!
+[core]
+	editor = emacsclient -a emacs
+[diff "lisp"]
+	xfuncname = "^\\(def[^[:space:]]+[[:space:]]+([^()[:space:]]+)"
+[diff "elisp"]
+	xfuncname = "^\\(def[^[:space:]]+[[:space:]]+([^()[:space:]]+)"
