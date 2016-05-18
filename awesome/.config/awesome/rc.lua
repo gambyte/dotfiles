@@ -268,8 +268,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     -- awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,           }, "b", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift"   }, "b", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -286,7 +286,7 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
     --Personal
-    awful.key({ modkey }, "b", function() mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
+    awful.key({ modkey }, "space", function() mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
     awful.key({ modkey }, "F12", function () awful.util.spawn("xlock -mode blank -dpmsoff 5 -startCmd \"pkill -HUP gpg-agent\"") end),
     awful.key({ }, "XF86Sleep", function () awful.util.spawn("systemctl suspend") end),
     awful.key({ modkey }, "\\", function () awful.util.spawn("emacs") end),
@@ -306,7 +306,7 @@ globalkeys = awful.util.table.join(
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Control" }, "b",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     -- awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
