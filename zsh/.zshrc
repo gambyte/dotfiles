@@ -59,9 +59,13 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 autoload -U colors && colors
-PROMPT="%{$fg_bold[red]%}>%{$reset_color%}"
-RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %{$fg[white]%}[%T]%{$reset_color%}"
-[[ $INSIDE_EMACS ]] && unsetopt zle
+if [[ $INSIDE_EMACS ]]; then
+    PROMPT="%~%{$fg_bold[red]%}>%{$reset_color%}"
+    unsetopt zle
+else
+    PROMPT="%{$fg_bold[red]%}>%{$reset_color%}"
+    RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %{$fg[white]%}[%T]%{$reset_color%}"
+fi
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
 set -u
