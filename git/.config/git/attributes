@@ -1,0 +1,6 @@
+*.py	diff=python
+*.tex	diff=tex
+*.bib	diff=bibtex
+*.lisp	diff=lisp
+*.el	diff=elisp
+*.f95	diff=fortran
