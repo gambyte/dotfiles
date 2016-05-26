@@ -33,12 +33,12 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 alias update='pacaur -Syyu --noconfirm --noedit'
-alias magit='emacs -nw -magit'
+alias magit='emacs -nw --no-server --no-secrets -magit'
 alias m='ncmpcpp'
 alias e='emacsclient -t -a zile'
 export EDITOR="emacsclient -a zile"
 export SUDO_EDITOR="emacsclient -a zile"
-export DIFFPROG="emacs -nw -diff"
+export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
 export PAGER="/bin/less"
 if [ -n "$DISPLAY" ]; then
