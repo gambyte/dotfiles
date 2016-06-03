@@ -294,6 +294,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "s", function () awful.util.spawn("passmenu --type -i") end),
     awful.key({ }, "XF86TouchpadOn", function () awful.util.spawn("synclient TouchpadOff=0") end),
     awful.key({ }, "XF86TouchpadOff", function () awful.util.spawn("synclient TouchpadOff=1") end),
+    awful.key({ modkey } , "F10", function () awful.util.spawn("xkill") end),
     awful.key({ }, "XF86AudioPlay", function () awful.util.spawn("mpc toggle") end),
     awful.key({ }, "XF86AudioStop", function () awful.util.spawn("mpc stop") end),
     awful.key({ }, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
