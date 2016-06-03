@@ -1,0 +1,118 @@
+;;; -*- mode:lisp -*-
+(in-package :stumpwm)
+
+(set-prefix-key (kbd "F20"))
+
+(defparameter X-TERM "exec urxvtc"
+  "X-TERM command definition so we can launch a terminal emulator")
+
+(define-key *root-map* (kbd "c") X-TERM)
+(define-key *root-map* (kbd "C-c") X-TERM)
+
+(define-key *root-map* (kbd "s") "hsplit")
+(define-key *root-map* (kbd "S") "vsplit")
+
+(define-key *input-map* (kbd "C-h") 'input-delete-backward-char)
+(define-key *input-map* (kbd "M-h") 'input-backward-kill-word)
+(define-key *input-map* (kbd "M-p") 'input-history-back)
+(define-key *input-map* (kbd "M-n") 'input-history-forward)
+
+(set-font "Hack")
+
+(stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
+
+(defcommand emacs () ()
+  "Start emacs unless it is already running, in which case focus it."
+  (run-or-raise "emacs -fs" '(:class "Emacs")))
+
+(when *initializing*
+  (defcommand start-swank () ()
+    "Toggle the swank server on/off. Ensure quicklisp is loaded
+first."
+    (load "~/.config/stumpwm/swank.lisp")
+    (echo-string
+     (current-screen)
+     "Starting swank on port 4005.")))
+
+(define-key *root-map* (kbd "C-q") "start-swank")
+
+(defcommand chromium () ()
+  "Start or switch to chromium"
+  (run-or-raise "chromium" '(:class "chromium")))
+
+(define-key *root-map* (kbd "t") "chromium")
+
+(defcommand vol-up () ()
+  "Increase the volume from the shell"
+  (run-shell-command
+   "amixer -q sset Master 5%+"))
+
+(defcommand vol-down () ()
+  "Decrease the volume from the shell"
+  (run-shell-command
+   "amixer -q sset Master 5%-"))
+
+(defcommand vol-mute () ()
+  "Mute the volume from the shell"
+  (run-shell-command
+   "amixer -q sset Master 0"))
+
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "vol-up")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "vol-down")
+(define-key *top-map* (kbd "XF86AudioMute") "vol-mute")
+
+(defcommand mpd-play () ()
+  "Toggle song playing in mpd"
+  (run-shell-command "mpc toggle"))
+
+(defcommand mpd-stop () ()
+  "Stop song playing in mpd"
+  (run-shell-command "mpc stop"))
+
+(defcommand mpd-prev () ()
+  "Play previous song"
+  (run-shell-command "mpc prev"))
+
+(defcommand mpd-next () ()
+  "Play next song"
+  (run-shell-command "mpc next"))
+
+(define-key *top-map* (kbd "XF86AudioPlay") "mpd-play")
+(define-key *top-map* (kbd "XF86AudioStop") "mpd-stop")
+(define-key *top-map* (kbd "XF86AudioPrev") "mpd-prev")
+(define-key *top-map* (kbd "XF86AudioNext") "mpd-next")
+
+(defcommand pass-passmenu () ()
+  "Run passmenu"
+  (run-shell-command "passmenu --type -i"))
+
+(define-key *root-map* (kbd "s-s") "pass-passmenu")
+
+(defcommand suspend () ()
+  "Suspend to ram"
+  (run-shell-command "systemctl suspend"))
+
+(define-key *top-map* (kbd "XF86Sleep") "suspend")
+
+(defcommand screen-lock () ()
+  "Lock the screen"
+  (run-shell-command "xlock -mode blank -dpmsoff 5 -startCmd \"pkill -HUP gpg-agent\""))
+
+(define-key *root-map* (kbd "s-F12") "screen-lock")
+
+(defcommand touchpad-on () ()
+  "Turn the touchpad on"
+  (run-shell-command "synclient TouchpadOff=0"))
+
+(defcommand touchpad-off () ()
+  "Turn the touchpad off"
+  (run-shell-command "synclient TouchpadOff=1"))
+
+(define-key *top-map* (kbd "XF86TouchpadOn") "touchpad-on")
+(define-key *top-map* (kbd "XF86TouchpadOff") "touchpad-off")
+
+(defcommand xkill () ()
+  "Run xkill"
+  (run-shell-command "xkill"))
+
+(define-key *root-map* (kbd "s-F10") "xkill")
