@@ -36,6 +36,12 @@ first."
 
 (define-key *root-map* (kbd "C-q") "start-swank")
 
+(defcommand reload-init () ()
+  "Reload the StumpWM init file"
+  (load "~/.config/stumpwm/config"))
+
+(define-key *root-map* (kbd "C-i") "reload-init")
+
 (defcommand chromium () ()
   "Start or switch to chromium"
   (run-or-raise "chromium" '(:class "chromium")))
