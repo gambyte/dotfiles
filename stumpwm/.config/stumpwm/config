@@ -17,7 +17,7 @@
 (define-key *input-map* (kbd "M-p") 'input-history-back)
 (define-key *input-map* (kbd "M-n") 'input-history-forward)
 
-(set-font "Hack")
+(set-font "-*-hack-medium-r-normal-*-13-*-*-*-*-*-*-*")
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
