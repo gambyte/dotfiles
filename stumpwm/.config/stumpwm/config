@@ -6,8 +6,8 @@
 (defparameter X-TERM "exec urxvtc"
   "X-TERM command definition so we can launch a terminal emulator")
 
-(define-key *root-map* (kbd "c") X-TERM)
-(define-key *root-map* (kbd "C-c") X-TERM)
+(define-key *root-map* (kbd "t") X-TERM)
+;; (define-key *root-map* (kbd "C-t") X-TERM)
 
 (define-key *root-map* (kbd "s") "hsplit")
 (define-key *root-map* (kbd "S") "vsplit")
@@ -40,7 +40,7 @@ first."
   "Start or switch to chromium"
   (run-or-raise "chromium" '(:class "chromium")))
 
-(define-key *root-map* (kbd "t") "chromium")
+(define-key *root-map* (kbd "c") "chromium")
 
 (defcommand vol-up () ()
   "Increase the volume from the shell"
