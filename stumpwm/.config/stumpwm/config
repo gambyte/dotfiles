@@ -12,6 +12,8 @@
 (define-key *root-map* (kbd "s") "hsplit")
 (define-key *root-map* (kbd "S") "vsplit")
 
+(define-key *root-map* (kbd "q") "only")
+
 (define-key *input-map* (kbd "C-h") 'input-delete-backward-char)
 (define-key *input-map* (kbd "M-h") 'input-backward-kill-word)
 (define-key *input-map* (kbd "M-p") 'input-history-back)
