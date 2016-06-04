@@ -14,6 +14,8 @@
 
 (define-key *root-map* (kbd "q") "only")
 
+(define-key *root-map* (kbd "ESC") "abort")
+
 (define-key *root-map* (kbd "w") "windowlist")
 
 (define-key *menu-map* (kbd "C-h") 'menu-backspace)
