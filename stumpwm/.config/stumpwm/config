@@ -46,7 +46,10 @@ first."
 
 (defcommand reload-init () ()
   "Reload the StumpWM init file"
-  (load "~/.config/stumpwm/config"))
+  (load "~/.config/stumpwm/config")
+  (echo-string
+     (current-screen)
+     "Re-loaded init file."))
 
 (define-key *root-map* (kbd "C-i") "reload-init")
 
