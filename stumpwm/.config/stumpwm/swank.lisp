@@ -6,10 +6,12 @@
 
 (let ((server-running nil)
       (first-time t))
+  (declare (boolean server-running
+		    first-time))
   (defcommand start-swank () ()
     "Toggle the swank server on/off. Ensure quicklisp is loaded
 first."
-    (eval-when (:execute)
+    (when first-time
       (ql:quickload :swank))
     (if server-running
         (progn
