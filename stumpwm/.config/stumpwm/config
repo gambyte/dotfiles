@@ -1,6 +1,8 @@
 ;;; -*- mode:lisp -*-
 (in-package :stumpwm)
 
+(setq *startup-message* "Live long and prosper.")
+
 (set-prefix-key (kbd "F20"))
 
 (defparameter X-TERM "exec urxvtc"
