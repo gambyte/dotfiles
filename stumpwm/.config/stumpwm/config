@@ -23,6 +23,8 @@
 (define-key *root-map* (kbd "w") "windowlist")
 
 (define-key *menu-map* (kbd "C-h") 'menu-backspace)
+(define-key *menu-map* (kbd "F20") 'menu-finish)
+(define-key *menu-map* (kbd "C-j") 'menu-finish)
 
 (define-key *input-map* (kbd "C-h") 'input-delete-backward-char)
 (define-key *input-map* (kbd "M-h") 'input-backward-kill-word)
