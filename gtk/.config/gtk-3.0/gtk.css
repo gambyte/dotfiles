@@ -1,0 +1,5 @@
+@binding-set gtk-emacs-text-entry
+{
+  bind "<alt>h" { "delete-from-cursor" (word-ends, -1) };
+  bind "<alt>BackSpace" { "delete-from-cursor" (word-ends, -1) };
+}
