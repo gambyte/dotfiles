@@ -7,6 +7,7 @@ fi
 xcape -e "Shift_L=parenleft;Shift_R=parenright;Control_R=space;Control_L=space"
 numlockx &
 [[ -f /usr/bin/synclient ]] && synclient TouchpadOff=1
+xset r off
 
 if [ -x ~/.fehbg ]; then
     ~/.fehbg &
