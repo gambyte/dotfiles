@@ -2,4 +2,5 @@
 {
   bind "<alt>h" { "delete-from-cursor" (word-ends, -1) };
   bind "<alt>BackSpace" { "delete-from-cursor" (word-ends, -1) };
+  bind "<ctrl>j" { "insert-at-cursor" ("\n") };
 }
