@@ -109,7 +109,7 @@ first."
   "Run passmenu"
   (run-shell-command "passmenu --type -i"))
 
-(define-key *root-map* (kbd "s-s") "pass-passmenu")
+(define-key *root-map* (kbd "C-s") "pass-passmenu")
 
 (defcommand suspend () ()
   "Suspend to ram"
@@ -121,7 +121,7 @@ first."
   "Lock the screen"
   (run-shell-command "xlock -mode blank -dpmsoff 5 -startCmd \"pkill -HUP gpg-agent\""))
 
-(define-key *root-map* (kbd "s-F12") "screen-lock")
+(define-key *root-map* (kbd "F12") "screen-lock")
 
 (defcommand touchpad-on () ()
   "Turn the touchpad on"
@@ -138,4 +138,4 @@ first."
   "Run xkill"
   (run-shell-command "xkill"))
 
-(define-key *root-map* (kbd "s-F10") "xkill")
+(define-key *root-map* (kbd "F10") "xkill")
