@@ -4,6 +4,8 @@
 	signingkey = BAEE096B!
 [core]
 	editor = emacsclient -a emacs
+[diff]
+	compactionHeuristic = true
 [diff "lisp"]
 	xfuncname = "^\\(def[^[:space:]]+[[:space:]]+([^()[:space:]]+)"
 [diff "elisp"]
