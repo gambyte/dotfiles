@@ -30,6 +30,7 @@
 (define-key *input-map* (kbd "M-h") 'input-backward-kill-word)
 (define-key *input-map* (kbd "M-p") 'input-history-back)
 (define-key *input-map* (kbd "M-n") 'input-history-forward)
+(define-key *input-map* (kbd "C-i") 'input-complete-forward)
 
 (set-font "-*-hack-medium-r-normal-*-13-*-*-*-*-*-*-*")
 
