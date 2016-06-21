@@ -40,11 +40,6 @@ export EDITOR="emacsclient -a zile"
 export SUDO_EDITOR="emacsclient -a zile"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
-if [ -n "$DISPLAY" ]; then
-    export BROWSER=chromium
-else
-    export BROWSER=links
-fi
 
 export C_INCLUDE_PATH=/usr/lib/libffi-3.2.1/include
 
@@ -62,10 +57,16 @@ if [[ $INSIDE_EMACS ]]; then
     PROMPT="%~%{$fg_bold[red]%}>%{$reset_color%}"
     unsetopt zle
     export PAGER="/bin/cat"
+    export BROWSER=eww
 else
     PROMPT="%{$fg_bold[red]%}>%{$reset_color%}"
     RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %{$fg[white]%}[%T]%{$reset_color%}"
     export PAGER="/bin/less"
+    if [ -n "$DISPLAY" ]; then
+	export BROWSER=chromium
+    else
+	export BROWSER=links
+    fi
 fi
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
