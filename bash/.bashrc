@@ -39,7 +39,6 @@ export EDITOR="emacsclient -a zile"
 export SUDO_EDITOR="emacsclient -a zile"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
-export PAGER="/bin/less"
 if [ -n "$DISPLAY" ]; then
     export BROWSER=chromium
 else
@@ -52,6 +51,12 @@ function clearram()
 {
     sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null;
 }
+
+if [[ $INSIDE_EMACS ]]; then
+    export PAGER="/bin/cat"
+else
+    export PAGER="/bin/less"
+fi
 
 set -u
 stty -ixon
