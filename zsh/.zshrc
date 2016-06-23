@@ -57,12 +57,9 @@ autoload -U colors && colors
 PROMPT="%{$fg_bold[red]%}>%{$reset_color%}"
 
 if [[ $INSIDE_EMACS ]]; then
-    unsetopt zle
-    export PAGER="/bin/cat"
     export BROWSER=eww
 else
     RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %{$fg[white]%}[%T]%{$reset_color%}"
-    export PAGER="/bin/less"
     if [ -n "$DISPLAY" ]; then
 	export BROWSER=chromium
     else
@@ -71,6 +68,14 @@ else
 fi
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
+
+if [[ $TERM == dumb ]]; then
+    unsetopt zle
+    export PAGER="/bin/cat"
+else
+    export PAGER="/bin/less"
+fi
+
 set -u
 stty -ixon
 # The following lines were added by compinstall
