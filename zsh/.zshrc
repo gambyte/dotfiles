@@ -57,6 +57,11 @@ autoload -U colors && colors
 PROMPT="%{$fg_bold[red]%}>%{$reset_color%}"
 
 if [[ $INSIDE_EMACS ]]; then
+    function emacs-man()
+    {
+	emacsclient -e "(let ((Man-notify-method 'aggressive)) (man \"$*\"))"
+    }
+    alias man='emacs-man'
     export BROWSER=eww
 else
     RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %{$fg[white]%}[%T]%{$reset_color%}"
