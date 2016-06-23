@@ -1,7 +1,8 @@
 ;;; -*- mode:lisp -*-
 (in-package :stumpwm)
 
-(setq *startup-message* "Live long and prosper.")
+(setq *startup-message*
+      (run-shell-command "~/.config/stumpwm/check-validity.sh" t))
 
 (set-prefix-key (kbd "F20"))
 
