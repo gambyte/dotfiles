@@ -7,4 +7,7 @@ binding "gtk-emacs-text-entry"
   bind "<ctrl>j" { "insert-at-cursor" ("\n")
 		   "move-cursor" (logical-positions, -1, 0)
 		   "move-cursor" (logical-positions, 1, 0) }
+  bind "<alt>m"  { "move-cursor" (paragraph-ends, -1, 0)
+		   "move-cursor" (words, 1, 0)
+		   "move-cursor" (words, -1, 0) }
 }
