@@ -9,6 +9,10 @@ numlockx &
 [[ -f /usr/bin/synclient ]] && synclient TouchpadOff=1
 xset r off
 
+if [ -x /bin/dunst ]; then
+    dunst &
+fi
+
 if [ -x ~/.fehbg ]; then
     ~/.fehbg &
 fi
