@@ -70,12 +70,12 @@ first."
 (defcommand vol-up () ()
   "Increase the volume from the shell"
   (run-shell-command
-   "amixer -q sset Master 5%+"))
+   "amixer -q sset Master 1dB+"))
 
 (defcommand vol-down () ()
   "Decrease the volume from the shell"
   (run-shell-command
-   "amixer -q sset Master 5%-"))
+   "amixer -q sset Master 1dB-"))
 
 (defcommand vol-mute () ()
   "Mute the volume from the shell"

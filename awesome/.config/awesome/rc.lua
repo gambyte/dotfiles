@@ -300,8 +300,8 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
     awful.key({ }, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
     awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer -q sset Master 0") end),
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -q sset Master 5%+") end),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q sset Master 5%-") end)
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -q sset Master 1dB+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q sset Master 1dB-") end)
 )
 
 clientkeys = awful.util.table.join(
