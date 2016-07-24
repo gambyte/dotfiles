@@ -38,11 +38,6 @@ export EDITOR="emacsclient -a zile"
 export SUDO_EDITOR="emacsclient -a zile"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
-if [ -n "$DISPLAY" ]; then
-    export BROWSER=chromium
-else
-    export BROWSER=links
-fi
 
 export C_INCLUDE_PATH=/usr/lib/libffi-3.2.1/include
 
@@ -57,6 +52,7 @@ if [[ $INSIDE_EMACS ]]; then
 	emacsclient -e "(let ((Man-notify-method 'aggressive)) (man \"$*\"))"
     }
     alias man='emacs-man'
+    export BROWSER="${HOME}/.emacs.d/eww.sh"
     export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
 	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
@@ -65,6 +61,11 @@ if [[ $INSIDE_EMACS ]]; then
 	alias sudo='sudo '
     fi
 else
+    if [ -n "$DISPLAY" ]; then
+	export BROWSER=chromium
+    else
+	export BROWSER=links
+    fi
     alias sudo='sudo '
 fi
 

@@ -61,7 +61,7 @@ if [[ $INSIDE_EMACS ]]; then
 	emacsclient -e "(let ((Man-notify-method 'aggressive)) (man \"$*\"))"
     }
     alias man='emacs-man'
-    export BROWSER=eww
+    export BROWSER="${HOME}/.emacs.d/eww.sh"
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
 	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
 	alias sudo='sudo -A '
