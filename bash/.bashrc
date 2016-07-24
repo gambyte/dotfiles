@@ -13,7 +13,6 @@ alias la='ls -a'
 alias lat='ls -at'
 alias lla='ls -lha'
 alias llat='ls -lhat'
-alias sudo='sudo '
 alias open='xdg-open'
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias mkdir='mkdir -p -v'
@@ -53,6 +52,23 @@ function clearram()
 }
 
 if [[ $INSIDE_EMACS ]]; then
+    function emacs-man()
+    {
+	emacsclient -e "(let ((Man-notify-method 'aggressive)) (man \"$*\"))"
+    }
+    alias man='emacs-man'
+    export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
+    if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
+	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
+	alias sudo='sudo -A '
+    else
+	alias sudo='sudo '
+    fi
+else
+    alias sudo='sudo '
+fi
+
+if [[ $TERM == dumb ]]; then
     export PAGER="/bin/cat"
 else
     export PAGER="/bin/less"

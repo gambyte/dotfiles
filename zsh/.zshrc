@@ -15,7 +15,6 @@ alias la='ls -a'
 alias lat='ls -at'
 alias lla='ls -lha'
 alias llat='ls -lhat'
-alias sudo='sudo '
 alias open='xdg-open'
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias mkdir='mkdir -p -v'
@@ -63,6 +62,12 @@ if [[ $INSIDE_EMACS ]]; then
     }
     alias man='emacs-man'
     export BROWSER=eww
+    if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
+	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
+	alias sudo='sudo -A '
+    else
+	alias sudo='sudo '
+    fi
 else
     RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %{$fg[white]%}[%T]%{$reset_color%}"
     if [ -n "$DISPLAY" ]; then
@@ -70,6 +75,7 @@ else
     else
 	export BROWSER=links
     fi
+    alias sudo='sudo '
 fi
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
