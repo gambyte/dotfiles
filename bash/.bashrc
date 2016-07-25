@@ -71,6 +71,9 @@ fi
 
 if [[ $TERM == dumb ]]; then
     export PAGER="/bin/cat"
+    if [[ $INSIDE_EMACS ]]; then
+	alias ls='env TERM=xterm ls -v --color=auto'
+    fi
 else
     export PAGER="/bin/less"
 fi

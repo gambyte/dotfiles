@@ -83,6 +83,9 @@ zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
 if [[ $TERM == dumb ]]; then
     unsetopt zle
     export PAGER="/bin/cat"
+    if [[ $INSIDE_EMACS ]]; then
+	alias ls='env TERM=xterm ls -v --color=auto'
+    fi
 else
     export PAGER="/bin/less"
 fi
