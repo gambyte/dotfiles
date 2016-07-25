@@ -42,11 +42,6 @@ export LESS="-RSMsi"
 
 export C_INCLUDE_PATH=/usr/lib/libffi-3.2.1/include
 
-function clearram()
-{
-    sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null;
-}
-
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
@@ -65,6 +60,10 @@ if [[ $INSIDE_EMACS ]]; then
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
 	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
 	alias sudo='sudo -A '
+	function clearram()
+	{
+	    sync && echo 3 | sudo -A tee /proc/sys/vm/drop_caches > /dev/null;
+	}
     else
 	alias sudo='sudo '
     fi
@@ -76,6 +75,10 @@ else
 	export BROWSER=links
     fi
     alias sudo='sudo '
+    function clearram()
+    {
+	sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null;
+    }
 fi
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
