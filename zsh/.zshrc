@@ -34,9 +34,9 @@ alias chgrp='chgrp --preserve-root'
 alias update='pacaur -Syyu --noconfirm --noedit'
 alias magit='emacs -nw --no-server --no-secrets -magit'
 alias m='ncmpcpp'
-alias e='emacsclient -t -a zile'
-export EDITOR="emacsclient -a zile"
-export SUDO_EDITOR="emacsclient -a zile"
+export EDITOR="emacsclient"
+export SUDO_EDITOR="emacsclient"
+export ALTERNATE_EDITOR="emacs"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
 
@@ -67,6 +67,7 @@ if [[ $INSIDE_EMACS ]]; then
     else
 	alias sudo='sudo '
     fi
+    alias e='emacsclient'
 else
     RPROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[white]%}[%n@%m]%{$reset_color%} %{$fg[white]%}[%T]%{$reset_color%}"
     if [ -n "$DISPLAY" ]; then
@@ -79,6 +80,7 @@ else
     {
 	sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null;
     }
+    alias e='emacsclient -t'
 fi
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"

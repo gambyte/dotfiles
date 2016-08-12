@@ -33,9 +33,9 @@ PS1='[\u@\h \W]\$ '
 alias update='pacaur -Syyu --noconfirm --noedit'
 alias magit='emacs -nw --no-server --no-secrets -magit'
 alias m='ncmpcpp'
-alias e='emacsclient -t -a zile'
-export EDITOR="emacsclient -a zile"
-export SUDO_EDITOR="emacsclient -a zile"
+export EDITOR="emacsclient"
+export SUDO_EDITOR="emacsclient"
+export ALTERNATE_EDITOR="emacs"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
 
@@ -59,6 +59,7 @@ if [[ $INSIDE_EMACS ]]; then
     else
 	alias sudo='sudo '
     fi
+    alias e='emacsclient'
 else
     if [ -n "$DISPLAY" ]; then
 	export BROWSER=chromium
@@ -70,6 +71,7 @@ else
     {
 	sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null;
     }
+    alias e='emacsclient -t'
 fi
 
 if [[ $TERM == dumb ]]; then
