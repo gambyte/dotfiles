@@ -39,7 +39,7 @@
 
 (defcommand emacs () ()
   "Start emacs unless it is already running, in which case focus it."
-  (run-or-raise "emacs -fs" '(:class "Emacs")))
+  (run-or-raise "emacs -fs -de-fs" '(:class "Emacs")))
 
 (when *initializing*
   (defcommand start-swank () ()
