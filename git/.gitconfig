@@ -10,3 +10,5 @@
 	xfuncname = "^\\(def[^[:space:]]+[[:space:]]+([^()[:space:]]+)"
 [diff "elisp"]
 	xfuncname = "^\\(def[^[:space:]]+[[:space:]]+([^()[:space:]]+)"
+[transfer]
+	fsckObjects = true
