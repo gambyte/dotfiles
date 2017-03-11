@@ -7,6 +7,8 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 bindkey '^[h' backward-kill-word
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
 alias ls='ls -v --color=auto'
 alias lt='ls -t'
 alias ll='ls -lh'
