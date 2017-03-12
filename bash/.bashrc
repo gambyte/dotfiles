@@ -48,6 +48,11 @@ if [[ $INSIDE_EMACS ]]; then
 	emacsclient -e "(let ((Man-notify-method 'aggressive)) (man \"$*\"))"
     }
     alias man='emacs-man'
+    function emacs-proced()
+    {
+	emacsclient -e "(let ((proced-filter 'user)) (proced))"
+    }
+    alias proced='emacs-proced'
     export BROWSER="${HOME}/.emacs.d/eww.sh"
     export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
@@ -79,6 +84,14 @@ if [[ $TERM == dumb ]]; then
     export PAGER="/bin/cat"
     if [[ $INSIDE_EMACS ]]; then
 	alias ls='env TERM=xterm ls -v --color=auto'
+	alias htop='emacs-proced'
+	alias top='emacs-proced'
+	function emacs-clear()
+	{
+	    emacsclient -e "(with-current-buffer \"*shell*\"
+(comint-kill-region (point-min) (point)))"
+	}
+	alias clear='emacs-clear'
     fi
 else
     export PAGER="/bin/less"
