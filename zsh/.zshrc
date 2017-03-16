@@ -103,7 +103,7 @@ if [[ $TERM == dumb ]]; then
 	function emacs-clear()
 	{
 	    emacsclient -e "(with-current-buffer \"*shell*\"
-(comint-kill-region (point-min) (point)))"
+(comint-kill-region (point-min) (point)))" > /dev/null
 	}
 	alias clear='emacs-clear'
     fi
