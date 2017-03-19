@@ -35,7 +35,6 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 [ -d ~/builds/ ] && alias pacaur='SRCDEST=~/builds/ pacaur'
 alias update='pacaur -Syyu --noconfirm --noedit'
-alias magit='emacs -nw --no-server --no-secrets -magit'
 alias m='ncmpcpp'
 export EDITOR="emacsclient"
 export SUDO_EDITOR="emacsclient"
@@ -70,6 +69,11 @@ if [[ $INSIDE_EMACS ]]; then
 	emacsclient -e "(dired \"${1:-$PWD}\" ${args:+\"$args\"})"
     }
     alias dired='emacs-dired'
+    function emacs-magit()
+    {
+	emacsclient -e "(magit-status ${1:+\"$1\"})"
+    }
+    alias magit='emacs-magit'
     export BROWSER="${HOME}/.emacs.d/eww.sh"
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
 	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
@@ -95,6 +99,7 @@ else
 	sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null;
     }
     alias e='emacsclient -t'
+    alias magit='emacs -nw --no-server --no-secrets -magit'
 fi
 setopt HIST_IGNORE_DUPS
 zstyle ':completion:*' show-ambiguity "1;$color[fg-red]"
