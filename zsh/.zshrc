@@ -60,7 +60,7 @@ if [[ $INSIDE_EMACS ]]; then
     alias man='emacs-man'
     function emacs-proced()
     {
-	emacsclient -e "(let ((proced-filter 'user)) (proced))"
+	emacsclient -e "(progn (proced) (proced-filter-interactive (intern \"${1:-user}\")))"
     }
     alias proced='emacs-proced'
     function emacs-dired()
