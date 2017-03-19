@@ -53,6 +53,12 @@ if [[ $INSIDE_EMACS ]]; then
 	emacsclient -e "(let ((proced-filter 'user)) (proced))"
     }
     alias proced='emacs-proced'
+    function emacs-dired()
+    {
+	local args="${@:2}"
+	emacsclient -e "(dired \"${1:-$PWD}\" ${args:+\"$args\"})"
+    }
+    alias dired='emacs-dired'
     export BROWSER="${HOME}/.emacs.d/eww.sh"
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
 	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
