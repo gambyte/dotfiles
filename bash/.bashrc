@@ -54,7 +54,6 @@ if [[ $INSIDE_EMACS ]]; then
     }
     alias proced='emacs-proced'
     export BROWSER="${HOME}/.emacs.d/eww.sh"
-    export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
 	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
 	alias sudo='sudo -A '
