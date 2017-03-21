@@ -1,4 +1,5 @@
 (format t "~&Updating ~~/lisp/sbcl.core-graham~&")
+(mapc 'require '(sb-bsd-sockets sb-posix sb-introspect sb-cltl2 asdf sb-rotate-byte sb-gmp))
 (load "~/quicklisp/setup.lisp")
 (ql:update-client :prompt nil)
 (ql:update-all-dists :prompt nil)
@@ -16,7 +17,6 @@
 ;; (ql:quickload :ironclad)
 ;; (ql:quickload :drakma)
 ;; (ql:quickload :cl-json)
-(mapc 'require '(sb-bsd-sockets sb-posix sb-introspect sb-cltl2 asdf sb-rotate-byte))
 (sb-ext:save-lisp-and-die #P"~/lisp/sbcl.core-graham")
 ;; (swank-loader:dump-image #P"~/lisp/sbcl.core-graham")
 ;; (quit)
