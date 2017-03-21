@@ -42,8 +42,6 @@ export ALTERNATE_EDITOR="emacs"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
 
-export C_INCLUDE_PATH=/usr/lib/libffi-3.2.1/include
-
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line

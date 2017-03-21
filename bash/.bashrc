@@ -39,8 +39,6 @@ export ALTERNATE_EDITOR="emacs"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
 
-export C_INCLUDE_PATH=/usr/lib/libffi-3.2.1/include
-
 if [[ $INSIDE_EMACS ]]; then
     function emacs-man()
     {
