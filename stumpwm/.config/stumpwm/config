@@ -67,6 +67,17 @@ first."
 
 (define-key *root-map* (kbd "c") "chromium")
 
+(defcommand vlc (file) ((:string "File: "))
+  "Start or switch to vlc"
+  (run-or-raise (apply #'concatenate 'string
+		       "vlc"
+		       (when (and file (not (equal file "")))
+			 (list " " file)))
+		'(:class "Vlc")))
+
+(define-key *root-map* (kbd "C-v") "version")
+(define-key *root-map* (kbd "v") "vlc")
+
 (defcommand vol-up () ()
   "Increase the volume from the shell"
   (run-shell-command
