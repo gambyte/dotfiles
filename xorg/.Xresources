@@ -34,3 +34,6 @@ URxvt.colorUL: #4682B4
 URxvt*.transparent: true
 ! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
 URxvt*.shading: 105
+
+URxvt*keysym.Mod3-h: @ha
+URxvt*keysym.Mod3-q: @hq
