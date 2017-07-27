@@ -63,7 +63,7 @@ first."
 
 (defcommand chromium () ()
   "Start or switch to chromium"
-  (run-or-raise "chromium" '(:class "Chromium")))
+  (run-or-raise "nice -n 5 chromium" '(:class "Chromium")))
 
 (define-key *root-map* (kbd "c") "chromium")
 
