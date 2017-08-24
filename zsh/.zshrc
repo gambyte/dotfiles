@@ -75,13 +75,13 @@ if [[ $INSIDE_EMACS ]]; then
     export BROWSER="${HOME}/.emacs.d/eww.sh"
     if [ -x "${HOME}/.emacs.d/sudo_askpass.sh" ]; then
 	export SUDO_ASKPASS="${HOME}/.emacs.d/sudo_askpass.sh"
-	alias sudo='sudo -A '
+	alias sudo='sudo -A EDITOR="sudo --user=$USER EDITOR="$EDITOR" sudoedit"'
 	function clearram()
 	{
 	    sync && echo 3 | sudo -A tee /proc/sys/vm/drop_caches > /dev/null;
 	}
     else
-	alias sudo='sudo '
+	alias sudo='sudo EDITOR="sudo --user=$USER EDITOR="$EDITOR" sudoedit"'
     fi
     alias e='emacsclient'
 else
@@ -91,7 +91,7 @@ else
     else
 	export BROWSER=links
     fi
-    alias sudo='sudo '
+    alias sudo='sudo EDITOR="sudo --user=$USER EDITOR="$EDITOR" sudoedit"'
     function clearram()
     {
 	sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null;
