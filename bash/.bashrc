@@ -91,7 +91,7 @@ fi
 if [[ $TERM == dumb ]]; then
     export PAGER="/bin/cat"
     if [[ $INSIDE_EMACS ]]; then
-	alias ls='env TERM=xterm ls -v --color=auto'
+	alias ls='env TERM=ansi ls -v --color=auto'
 	alias htop='emacs-proced'
 	alias top='emacs-proced'
 	function emacs-clear()
