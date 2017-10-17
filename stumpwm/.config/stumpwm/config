@@ -65,7 +65,11 @@ first."
   "Start or switch to chromium"
   (run-or-raise "nice -n 5 chromium" '(:class "Chromium")))
 
-(define-key *root-map* (kbd "c") "chromium")
+(defcommand firefox () ()
+  "Start or switch to firefox"
+  (run-or-raise "nice -n 5 firefox" '(:class "Firefox")))
+
+(define-key *root-map* (kbd "c") "firefox")
 
 (defcommand vlc (file) ((:string "File: "))
   "Start or switch to vlc"
@@ -153,15 +157,15 @@ first."
 
 (define-key *root-map* (kbd "F10") "xkill")
 
-(defcommand my/c-g-or-escape () ()
-  "Send c-g or escape"
-  (let ((win (screen-current-window (current-screen))))
-    (send-fake-key
-     win
-     (if (classed-p win "Emacs")
-	 (kbd "C-G")
-	 (if (classed-p win "Chromium")
-	     (kbd "ESC")
-	     (kbd "C-g"))))))
+;; (defcommand my/c-g-or-escape () ()
+;;   "Send c-g or escape"
+;;   (let ((win (screen-current-window (current-screen))))
+;;     (send-fake-key
+;;      win
+;;      (if (classed-p win "Emacs")
+;; 	 (kbd "C-G")
+;; 	 (if (classed-p win "Chromium")
+;; 	     (kbd "ESC")
+;; 	     (kbd "C-g"))))))
 
-(define-key *top-map* (kbd "C-g") "my/c-g-or-escape")
+;; (define-key *top-map* (kbd "C-g") "my/c-g-or-escape")
