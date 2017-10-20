@@ -34,7 +34,7 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 [ -d ~/builds/ ] && alias pacaur='SRCDEST=~/builds/ pacaur'
-alias update='pacaur -Syyu --noconfirm --noedit'
+alias update='pacaur -Syyu --needed --noconfirm --noedit'
 alias m='ncmpcpp'
 export EDITOR="emacsclient"
 export SUDO_EDITOR="emacsclient"
