@@ -128,6 +128,13 @@ first."
 
 (define-key *root-map* (kbd "C-s") "pass-passmenu")
 
+(defcommand check-for-updates () ()
+  "Check for updates"
+  (format nil "There are ~d updates available."
+	  (parse-integer (run-shell-command "checkupdates | wc -l" t))))
+
+(define-key *root-map* (kbd "u") "check-for-updates")
+
 (defcommand suspend () ()
   "Suspend to ram"
   (run-shell-command "systemctl suspend"))
