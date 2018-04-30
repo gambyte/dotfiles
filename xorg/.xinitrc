@@ -1,5 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-if [ -x /bin/urxvtd ]; then
+if [[ -x /bin/urxvtd && $XDG_VTNR -eq 1 ]]; then
     /bin/urxvtd -q -f -o
 fi
 setxkbmap dvorak

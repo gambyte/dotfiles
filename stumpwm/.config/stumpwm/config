@@ -6,7 +6,13 @@
 
 (set-prefix-key (kbd "F20"))
 
-(defparameter X-TERM "exec urxvtc"
+(defparameter X-TERM
+  #+sbcl
+  (if (string= (sb-ext:posix-getenv "XDG_VTNR") "1")
+      "exec urxvtc"
+      "exec urxvt")
+  #-sbcl
+  "exec urxvtc"
   "X-TERM command definition so we can launch a terminal emulator")
 
 (define-key *root-map* (kbd "t") X-TERM)
