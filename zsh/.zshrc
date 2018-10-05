@@ -23,16 +23,25 @@ alias mkdir='mkdir -p -v'
 alias ping='ping -c 3'
 alias df='df -h'
 alias du='du -c -h'
-alias du1='du --max-depth=1'
+if [[ "$(ls --help 2>&1 | grep -o BusyBox)" == "BusyBox" ]]; then
+    notBusyBox=false
+else
+    notBusyBox=true
+fi
+if $notBusyBox; then
+    alias du1='du --max-depth=1'
+fi
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
 alias rcp='rsync --progress --size-only --inplace --verbose'
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -Iv --one-file-system'
-alias ln='ln -i'
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+if $notBusyBox; then
+    alias rm='rm -Iv --one-file-system'
+    alias ln='ln -i'
+    alias chown='chown --preserve-root'
+    alias chmod='chmod --preserve-root'
+    alias chgrp='chgrp --preserve-root'
+fi
 [ -d ~/builds/ ] && alias pacaur='SRCDEST=~/builds/ pacaur'
 alias update='pacaur -Syyu --needed --noconfirm --noedit'
 alias m='ncmpcpp'
