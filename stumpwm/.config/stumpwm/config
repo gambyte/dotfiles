@@ -17,6 +17,7 @@
 
 (define-key *root-map* (kbd "t") X-TERM)
 ;; (define-key *root-map* (kbd "C-t") X-TERM)
+(define-key *top-map* (kbd "F7") X-TERM)
 
 (define-key *root-map* (kbd "s") "hsplit")
 (define-key *root-map* (kbd "S") "vsplit")
