@@ -48,6 +48,12 @@
   "Start emacs unless it is already running, in which case focus it."
   (run-or-raise "emacs -fs -de-fs" '(:class "Emacs")))
 
+(defcommand my/reuse-shell () ()
+  "Reuse a shell if one exists else create one"
+  (run-or-raise X-TERM '(:class "URxvt")))
+
+(define-key *root-map* (kbd "C-t") "my/reuse-shell")
+
 (when *initializing*
   (defcommand start-swank () ()
     "Toggle the swank server on/off. Ensure quicklisp is loaded
