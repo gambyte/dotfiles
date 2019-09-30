@@ -1,0 +1,4 @@
+#!/bin/awk -f
+{ print }
+/		case XK_n: ksym = XK_Down;      break;/	{ print "		case XK_s: ksym = XK_Down;      break;" }
+/		case XK_p: ksym = XK_Up;        break;/	{ print "		case XK_r: ksym = XK_Up;        break;" }
