@@ -137,6 +137,12 @@ else
     export PAGER="/bin/less"
 fi
 
+catch_signal_usr1() {
+    trap catch_signal_usr1 USR1
+    rehash
+}
+trap catch_signal_usr1 USR1
+
 set -u
 stty -ixon
 # The following lines were added by compinstall
