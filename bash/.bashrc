@@ -48,6 +48,14 @@ export ALTERNATE_EDITOR="emacs"
 export DIFFPROG="emacs -nw --no-server --no-secrets -diff"
 export LESS="-RSMsi"
 
+function fix-keyboard()
+{
+    setxkbmap dvorak
+    pkill --signal TERM xcape
+    xmodmap ~/.Xmodmap
+    xcape -e "Shift_L=parenleft;Shift_R=parenright;Control_R=space;Control_L=space"
+}
+
 if [[ $INSIDE_EMACS ]]; then
     function emacs-man()
     {
