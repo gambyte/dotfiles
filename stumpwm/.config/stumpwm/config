@@ -80,7 +80,7 @@ first."
 
 (defcommand firefox () ()
   "Start or switch to firefox"
-  (run-or-raise "nice -n 5 firefox" '(:class "Firefox")))
+  (run-or-raise "nice -n 5 firefox" '(:class "firefox")))
 
 (define-key *root-map* (kbd "c") "firefox")
 
