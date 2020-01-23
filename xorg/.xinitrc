@@ -12,7 +12,7 @@ fi
 if [ -x /bin/numlockx ]; then
     /bin/numlockx &
 fi
-xset r off
+# xset r off
 
 if [ -x /bin/dunst ]; then
     /bin/dunst &
